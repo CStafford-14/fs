@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Archive of Memories</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css" type="text/css">
+        <link rel="stylesheet" href="reset.css" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+        <style>
+            h1 {
+                font-family: 'Gabarito';
+                font-size: 144px;
+            }
+            h2 {
+                font-family: 'Gabarito';
+                font-size: 44px;
+            }
+            h3 {
+                font-family: 'Roboto';
+                font-size: 34px;
+            }
+            .hint {
+                font-size: 54px;
+                animation: fadeHint 10s ease infinite;
+            }
+
+            @keyframes fadeHint {
+                0% {
+                    opacity: 0;
+                }
+                20% {
+                    opacity: 1;
+                }
+                70% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div id="navbar">
+                <div class="nav_left">
+                    <a class="nav_left" href="/" style="text-decoration: none;"><div id="brand">
+                        <div class="nb_img" id="nb_icon"><img src="./rsrc/img/Cesium.svg" class="nb_img"></div>
+                    </div><div class="brandClip"></div></a>
+                </div>
+                <div class="nav_center" hx-trigger="load" hx-get="./rsrc/nb_latest.html" hx-swap="innerHTML"></div>
+                <div class="nav_right">
+                    <!-- When I get to it, account stuff will be here -->
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="nav_bump"></div>
+        <div style="display: flex; width: 100vw; height: calc(100vh - var(--nb-height));">
+            <div id="content" class="">
+                <div style="margin-top: 20vh;">
+                    <h2 style="text-align: center;">STAFFORD FAMILY</h2>
+                    <h1 style="text-align: center;">SERVICES</h1>
+                    <h3 style="text-align: center; margin-bottom: 10px;">Coming in 2024</h3>
+                    <h4 style="text-align: center;">
+                        <span class="material-symbols-rounded hint" id="hint">mail</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <script src="./htmx.min.js"></script>
+        <script>
+            async function app() {
+                const hints = ["photo_album","cloud","menu_book","mail"];
+                var i = 0;
+                while (true) {
+                    document.getElementById("hint").textContent = hints[i % hints.length];
+                    await new Promise(r => setTimeout(r, 10000));
+                    i++;
+                }
+            }
+
+            app();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,398 @@
+/* Definitions */
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400&family=Righteous&family=Roboto+Slab&family=Roboto:wght@300;400&display=swap');
+
+:root {
+    --nb-height: 55px;
+}
+
+body, html {
+    overflow-x: hidden;
+    width: 100vw;
+    scroll-behavior: smooth;
+    background-color: #2c2c2c;
+}
+
+#navbar {
+    background-color: rgb(49, 49, 49);
+    height: var(--nb-height);
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    z-index: 1000;
+}
+
+.nav_left {
+    height: var(--nb-height);
+    width: calc(100vw / 3);
+    display: flex;
+}
+
+.nav_center {
+    height: var(--nb-height);
+    width: calc(100vw / 3);
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav_right {
+    height: var(--nb-height);
+    width: calc(100vw / 3);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.nav_bump {
+    height: var(--nb-height)
+}
+
+.nb_item {
+    text-decoration: none;
+    color: white;
+    font-family: 'Gabarito';
+    height: var(--nb-height);
+    font-size: 20px;
+    line-height: calc(var(--nb-height) - 5px)
+}
+
+img.nb_img {
+    height: calc(var(--nb-height) - 20px);
+    padding: 10px;
+    transition: margin-right 0.3s ease-out;
+}
+
+div.nb_img {
+    display: flex;
+}
+
+.nb_img::after {
+    content: "Family Services";
+    font-family: 'Righteous';
+    color: rgba(255, 255, 255, 0);
+    height: var(--nb-height);
+    font-size: 30px;
+    line-height: calc(var(--nb-height) - 5px);
+    transition: all 0.2s ease-out;
+    margin-left: -20px;
+    text-wrap: none;
+    white-space: nowrap;
+}
+
+div.nb_img:hover::after, div.railOpen::after {
+    color: white;
+    margin-left: 0px;
+}
+
+#brand {
+    width: 55px;
+    background-color: rgb(34, 34, 34);
+    height: var(--nb-height);
+    transition: width 0.3s ease-out;
+}
+
+.brandClip {
+    clip-path: polygon(0 100%, 0 0, 20px 0, 0 100%, 10px 100%, 30px 0, 40px 0, 20px 100%, 30px 100%, 50px 0, 60px 0, 40px 100%);
+    background-color: rgb(34, 34, 34);
+    height: var(--nb-height);
+    width: 60px;
+}
+
+.backup {
+    clip-path: polygon(0 0, 0 100%, 80px 100%, 95px 0, 105px 0, 90px 100%, 100px 100%, 115px 0, 125px 0, 110px 100%, 120px 100%, 135px 0);
+}
+
+#brand:hover, #brand.railOpen {
+    width: 275px
+}
+
+.loginbtn {
+    font-size:15px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    border-width:3px;
+    color:#fff;
+    border-color:rgb(34, 34, 34);
+    font-weight:bold;
+    border-radius:15px;
+    background-color:transparent;
+    padding: 10px;
+    height: min-content;
+    width: 120px;
+    margin-right: 10px;
+  }
+
+  .nb_item {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.nb_item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    top: 4px;
+    background-color: white;
+    transition: all ease-in-out .2s;
+    border-radius: 3px;
+}
+
+.nb_item:hover::after {
+    width: 100%;
+    left: 0;
+    height: 5px;
+    top: 6px;
+}
+
+#cw {
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+}
+
+#carousel {
+    display: flex;
+    height: 1000px;
+    width: min-content;
+    scroll-behavior: smooth;
+}
+
+.carouselItem {
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    margin: 80px;
+    border-radius: 80px;
+    height: 840px;
+    min-width: calc(100vw - 160px);
+    position: relative;
+    transition: all 0.2s ease;
+    filter: blur(10px);
+}
+.carouselItem.active {
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    margin: 60px;
+    border-radius: 30px;
+    height: 880px;
+    min-width: calc(100vw - 120px);
+    position: relative;
+    filter: blur(0);
+}
+
+.carouselItem.active:hover {
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    margin: 45px;
+    border-radius: 40px;
+    height: 910px;
+    min-width: calc(100vw - 90px);
+    position: relative;
+}
+
+.carouselDot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #838181;;
+    border-radius: 3px;
+    display: inline-block;
+    transition: all 0.6s ease;
+}
+
+.carouselDot:hover, .carouselDot.active {
+    background-color: #555555;
+    transform: rotate(45deg);
+}
+
+.carouselDot:hover {
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
+.carouselContent {
+    margin: 120px;
+    position: absolute;
+    padding: 50px;
+    background-color: #5555553a;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+}
+
+.carouselTitle {
+    font-family: 'Gabarito';
+    font-size: 75px;
+    text-transform: uppercase;
+    line-height: 125px;
+}
+
+.carouselText {
+    font-family: 'Roboto';
+    font-size: 50px;
+    line-height: 80px;
+}
+
+.carouselSmolText {
+    font-family: 'Roboto';
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.carouselContent.right {
+    right: 150px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 500px;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    transition: all 0.2s ease;
+    user-select: none;
+    z-index: 5;
+  }
+
+  .prev {
+    left: 80px;
+  }
+  
+  .next {
+    right: 80px;
+  }
+  
+  .prev:hover, .next:hover {
+    font-size: 80px;
+  }
+
+  .menuIcon {
+    color: white;
+    padding-left: 10px;
+    align-self: center;
+  }
+
+  #rail {
+    height: calc(100vh - var(--nb-height) - 20px);
+    margin: 10px;
+    width: 430px;
+    border-radius: 30px;
+    position: fixed;
+    background-color: rgb(49, 49, 49);
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    transition: all 0.4s ease;
+    left: -500px;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  #rail.railOpen {
+    left: 0;
+    opacity: 100;
+  }
+
+  #content {
+    padding: 30px;
+    width:calc(100vw - 60px);
+    height: auto;
+    position: absolute;
+    transition: width 0.4s ease;
+    right: 0;
+  }
+
+  #content.railOpen {
+    width: calc(100vw - 490px) !important;
+  }
+
+  .nr_item {
+    text-decoration: none;
+    color: white;
+    font-family: 'Gabarito';
+    height: var(--nb-height);
+    font-size: 20px;
+    line-height: calc(var(--nb-height) - 5px);
+}
+
+.nr_back {
+    padding: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(59, 59, 59, 0);
+    transition: background-color 0.3s ease;
+}
+
+.nr_back:hover {
+    background-color: rgba(59, 59, 59, 1);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: white;
+}
+
+.secWrapper {
+    overflow-x: auto;
+}
+
+.section {
+    display: flex;
+    height: 400px;
+    width: max-content;
+    overflow-x: auto;
+}
+
+.sectionTitle {
+    font-size: 48px;
+    font-family: 'Gabarito';
+    margin-bottom: 20px;
+}
+
+#splashTitle {
+    font-size: 70px;
+    font-family: 'Gabarito';
+    margin-bottom: 50px;
+}
+
+.previewBox {
+    height: 360px;
+    width: 540px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    margin: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 1px 10px 35px 2px rgba(0,0,0,0.55);
+    border: white;
+    border-style: solid;
+    border-width: 3px;
+    background-image: url(/rsrc/img/error.png);
+}
+
+.previewBox:hover {
+    margin: 5px;
+    height: 370px;
+    width: 555px;
+}
+
+.previewLabel {
+    font-size: 48px;
+    font-family: 'Gabarito';
+}
+
+.sponsor {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color:#555555;
+    margin: 30px;
+}
+
+.profile {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: white solid 2px;
+}
